@@ -1,0 +1,19 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 900px;
+    height: 900px;
+}
+
+.title {
+    font-family: sans-serif;
+    font-size: 24px;
+    color: palevioletred;
+}
