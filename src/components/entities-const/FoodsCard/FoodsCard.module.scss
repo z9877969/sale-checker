@@ -1,0 +1,21 @@
+.foodsCard {
+    width: 400px;
+    padding: 20px;
+
+    color: #212121;
+
+    label {
+        display: flex;
+        justify-content: space-between;
+
+        & + label {
+            margin-top: 10px;
+        }
+    }
+
+    button {
+        margin-top: 15px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}

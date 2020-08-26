@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "nameIn": "Булка вкусная",
+        "prise": "10",
+        "units": "шт",
+        "currency": "UAH"
+    },
+    {
+        "id": 2,
+        "nameIn": "Батон",
+        "prise": "15",
+        "units": "шт",
+        "currency": "UAH"
+    },
+    {
+        "id": 3,
+        "nameIn": "Хлеб черный",
+        "prise": "20",
+        "units": "шт",
+        "currency": "UAH"
+    },
+    {
+        "id": 4,
+        "nameIn": "Плюшка",
+        "prise": "8",
+        "units": "шт",
+        "currency": "UAH"
+    },
+    {
+        "id": 5,
+        "nameIn": "Круасан",
+        "prise": "18",
+        "units": "шт",
+        "currency": "UAH"
+    }
+]
