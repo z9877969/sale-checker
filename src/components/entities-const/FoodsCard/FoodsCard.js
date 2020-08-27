@@ -32,7 +32,7 @@ const FoodsCard = () => {
 
     const formSubmit = e => {
         e.preventDefault();
-        
+
     }
 
     // effects
@@ -43,22 +43,22 @@ const FoodsCard = () => {
 
 
     return (
-        <form className={scss.foodsCard} onFocus={onFocus} onBlur={onBlur}>
+        <form className={scss.foodsCard}  onChange={getInputData} onFocus={onFocus} onBlur={onBlur}>
             <label>
                 Название товара:
-                <input type="text" name="nameIn" value={getDataValueRight("nameIn")} onChange={getInputData}/>
+                <input type="text" name="nameIn" value={getDataValueRight("nameIn")}/>
             </label>
             <label>
                 Цена:
-                <input type="text" name="prise" value={getDataValueRight("prise")} onChange={getInputData}/>
+                <input type="text" name="prise" value={getDataValueRight("prise")}/>
             </label>
             <label>
                 Единицы:
-                <input type="text" name="units" value={getDataValueRight("units")} onChange={getInputData}/>
+                <input type="text" name="units" value={getDataValueRight("units")}/>
             </label>
             <label>
                 Валюта:
-                <input type="text" name="currency" value={getDataValueRight("currency")} onChange={getInputData}/>
+                <input type="text" name="currency" value={getDataValueRight("currency")}/>
             </label>
             <button type="submit">ОК</button>
         </form>
