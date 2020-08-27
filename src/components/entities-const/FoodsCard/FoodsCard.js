@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
+import shortid from 'shortid';
 import scss from './FoodsCard.module.scss';
+
 
 
 const FoodsCard = () => {
@@ -11,27 +13,33 @@ const FoodsCard = () => {
     // helpers
     const getDataValueRight = name => foodsSpec.length > 0 && foodsSpec.find(spec => spec.dataName === name) && foodsSpec.find(spec => spec.dataName === name).dataValue || dataName === name && dataValue ||  ""
     
-
     // handlers
-
-    const onFocus = ({target}) => {
+    const handleOnFocus = ({target}) => {
         const {name} = target;
         setDataName(name);
     }
 
-    const onBlur = e => {
+    const handleOnBlur = e => {
         setFoodsSpec([...foodsSpec, {dataName, dataValue}]);
         
     }
 
-    const getInputData = e => {
+    const handleGetInputData = e => {
         const {name, value} = e.target;
         
         if(name === dataName) {setDataValue(value);}
     }
 
-    const formSubmit = e => {
+    const handleFormSubmit = e => {
         e.preventDefault();
+        const id = shortid.generate();
+        
+        const data = {};
+        data.id = shortid.generate();
+        foodsSpec.forEach(spec =>  {
+            data[spec.dataName] = spec.dataValue
+        });
+        console.log('data :>> ', data);
 
     }
 
@@ -43,7 +51,7 @@ const FoodsCard = () => {
 
 
     return (
-        <form className={scss.foodsCard}  onChange={getInputData} onFocus={onFocus} onBlur={onBlur}>
+        <form className={scss.foodsCard}  onChange={handleGetInputData} onFocus={handleOnFocus} onBlur={handleOnBlur} onSubmit={handleFormSubmit}>
             <label>
                 Название товара:
                 <input type="text" name="nameIn" value={getDataValueRight("nameIn")}/>
