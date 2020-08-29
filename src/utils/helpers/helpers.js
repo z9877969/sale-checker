@@ -1,0 +1,1 @@
+export const getDataValueRight = (name, value, dataArr) => dataArr.length > 0 && dataArr.find(spec => spec.dataName === name) && dataArr.find(spec => spec.dataName === name).dataValue || name === name && value || "";
