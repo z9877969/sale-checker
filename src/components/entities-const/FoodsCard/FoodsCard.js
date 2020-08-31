@@ -1,9 +1,8 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import shortid from 'shortid';
 import Input from '../../utils/Input/Input';
 import scss from './FoodsCard.module.scss';
-import { fetchFoodsData, postFoodsData } from '../../../utils/fetch/fetchForm';
-// import { getDataValueRight } from '../../../utils/helpers/helpers';
+import { postFoodsData } from '../../../utils/fetch/fetchForm';
 
 const getObj = (name, value) => {
     const obj = {};
@@ -56,6 +55,7 @@ const FoodsCard = () => {
     }
 
     return (
+        
         <form className={scss.foodsCard}
             onChange={handleGetInputData}
             onSubmit={handleFormSubmit}>
@@ -67,13 +67,14 @@ const FoodsCard = () => {
                             label: el.label,
                             inputName: el.nameIn
                         }
-                }
+                    }
                 />
                 )
             }
-
             <button type="submit" >ОК</button>
         </form>
+
+       
     )
 }
 

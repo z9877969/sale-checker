@@ -1,0 +1,28 @@
+.btnsList {
+    display: flex;
+    
+}
+
+.btn {
+    padding: 0;
+    margin: 0;
+    width: 30px;
+    height: 30px;
+    
+
+    &.turn {
+        background-image: url(../../../svg/minus.svg);
+    }
+
+    &.allSize {
+        background-image: url(../../../svg/files-empty.svg);
+    }
+
+    &.close {
+        background-image: url(../../../svg/cross.svg);
+    }
+
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
