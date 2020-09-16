@@ -6,13 +6,13 @@ const BtnsCtrlHeader = () => {
     return (
         <ul className={scss.btnsList}>
             <li>
-                <button type="button" className={`${scss.btn} ${scss.turn}`}></button>
+                <button type="button" data-action="turn" className={`${scss.btn} ${scss.turn}`}></button>
             </li>
             <li>
-                <button type="button" className={`${scss.btn} ${scss.allSize}`}></button>
+                <button type="button" data-action="allSize" className={`${scss.btn} ${scss.allSize}`}></button>
             </li>
             <li>
-                <button type="button" className={`${scss.btn} ${scss.close}`}></button>
+                <button type="button" data-action="close" className={`${scss.btn} ${scss.close}`}></button>
             </li>
         </ul>
     )

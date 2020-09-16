@@ -1,81 +1,53 @@
 import React, {useState} from 'react';
 import shortid from 'shortid';
 import Input from '../../utils/Input/Input';
-import scss from './FoodsCard.module.scss';
+import BtnsColection from '../BtnsColection/BtnsColection';
 import { postFoodsData } from '../../../utils/fetch/fetchForm';
+import scss from './FormInputData.module.scss';
 
-const getObj = (name, value) => {
-    const obj = {};
-    obj[name] = value;
-    return obj;
-}
-
-const inputsSetArr = [
-    {
-        label: "Название товара",
-        inputName: "nameIn"
-    },
-    {
-        label: "Цена",
-        inputName: "prise"
-    },
-    {
-        label: "Единицы",
-        inputName: "units"
-    },
-    {
-        label: "Валюта",
-        inputName: "currency"
-    },
-]
-
-const FoodsCard = () => {
+const InputDataForm = props => {
+    const {dataRender, btnsColSets} = props;
 
     // state
-    const [dataName, setDataName] = useState('');
-    const [dataValue, setDataValue] = useState('');
     const [data, setData] = useState({});
     
     // handlers
     const handleGetInputData = e => {
         const {name, value} = e.target;
-
         const obj = {};
         obj[name] = value;
         setData({...data, ...obj});
     }
-
     const handleFormSubmit = e => {
-        e.preventDefault();
-        
-        const id = shortid.generate();
-        
+        e.preventDefault();        
+        const id = shortid.generate();        
         postFoodsData({id, ...data});
-
     }
 
     return (
         
         <form className={scss.foodsCard}
             onChange={handleGetInputData}
-            onSubmit={handleFormSubmit}>
+            // onSubmit={handleFormSubmit}
+            >
             {
-                inputsSetArr.map(
+                dataRender.map(
                     el => <Input 
                     props={
                         {
                             label: el.label,
-                            inputName: el.nameIn
+                            inputName: el.nameIn,
+                            type: el.type ? el.type : "text"
                         }
                     }
                 />
                 )
             }
-            <button type="submit" >ОК</button>
+            <BtnsColection dataRender={btnsColSets} />
         </form>
 
        
     )
 }
 
-export default FoodsCard;
+export default InputDataForm;

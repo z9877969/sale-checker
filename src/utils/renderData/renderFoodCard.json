@@ -1,0 +1,83 @@
+{   
+    "modalFoodCard": {
+        "title": "Карточка товара",
+        "id": "food-card"
+    },
+    "formInputsDescrSets": [
+        {
+            "label": "Название товара",
+            "inputName": "nameIn"
+        },
+        {
+            "label": "Цена",
+            "inputName": "prise",
+            "type": "number"
+        },
+        {
+            "label": "Единицы",
+            "inputName": "units"
+        },
+        {
+            "label": "Валюта",
+            "inputName": "currency"
+        }
+    ],
+    "formSaleCtrlSets": [
+        {
+            "label": "Установить цену",
+            "inputName": "setPrice",
+            "type": "number"
+        },
+        {
+            "label": "Маржа",
+            "inputName": "margin",
+            "type": "select"
+        },
+        {
+            "label": "Поставщик",
+            "inputName": "provider",
+            "type": "select"
+        }
+    ],
+    "formUnitsSets": [
+        {
+            "label": "Ед.изм.миним",
+            "inputName": "unitsMin",
+            "type": "select"
+        },
+        {
+            "label": "Ед.изм.макс",
+            "inputName": "unitsMax",
+            "type": "select"
+        },
+        {
+            "label": "Вес",
+            "inputName": "weight",
+            "type": "number"
+        }
+    ],
+    "setsGlobalBtnsCard": [
+        {
+            "title": "Отмена",
+            "type": "button"
+        },
+        {
+            "title": "ОК",
+            "type": "submitt"
+        },
+        {
+            "title": "Записать",
+            "type": "button"
+        }
+    ],
+    "setsLocalBtnsCard": [
+        {
+            "title": "Применить",
+            "type": "submit"
+        },
+        {
+            "title": "Отмена",
+            "type": "button"
+        }
+    ]
+}

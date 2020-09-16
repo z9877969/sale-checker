@@ -8,7 +8,7 @@ import React, {useState} from 'react';
 
 const Input = ({props}) => {
 
-    const {label, inputName, inputValue, type="text"} = props;
+    const {label, inputName, inputValue, type} = props;
 
     return (
         <label>
