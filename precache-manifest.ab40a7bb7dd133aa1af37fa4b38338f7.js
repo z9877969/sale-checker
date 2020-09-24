@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5f5765bd891fdc1fe66e015d630ba1e1",
+    "revision": "1604c29ba38046260d6f54b574e2a2ef",
     "url": "/sale-checker/index.html"
   },
   {
-    "revision": "3851df5a14efcd974267",
+    "revision": "ad4ddb5247cb912001e5",
     "url": "/sale-checker/static/css/main.6c1a2dfd.chunk.css"
   },
   {
-    "revision": "818a098b15bc9301fb40",
-    "url": "/sale-checker/static/js/2.be7e763e.chunk.js"
+    "revision": "2240b9d73c562ca87015",
+    "url": "/sale-checker/static/js/2.254567c1.chunk.js"
   },
   {
     "revision": "c64c486544348f10a6d6c716950bc223",
-    "url": "/sale-checker/static/js/2.be7e763e.chunk.js.LICENSE.txt"
+    "url": "/sale-checker/static/js/2.254567c1.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "3851df5a14efcd974267",
-    "url": "/sale-checker/static/js/main.3850039c.chunk.js"
+    "revision": "ad4ddb5247cb912001e5",
+    "url": "/sale-checker/static/js/main.5be73393.chunk.js"
   },
   {
     "revision": "e36928a49476f155bd52",
