@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/sale-checker/static/css/main.6c1a2dfd.chunk.css",
+    "main.js": "/sale-checker/static/js/main.3850039c.chunk.js",
+    "main.js.map": "/sale-checker/static/js/main.3850039c.chunk.js.map",
+    "runtime-main.js": "/sale-checker/static/js/runtime-main.b1f915ff.js",
+    "runtime-main.js.map": "/sale-checker/static/js/runtime-main.b1f915ff.js.map",
+    "static/js/2.be7e763e.chunk.js": "/sale-checker/static/js/2.be7e763e.chunk.js",
+    "static/js/2.be7e763e.chunk.js.map": "/sale-checker/static/js/2.be7e763e.chunk.js.map",
+    "index.html": "/sale-checker/index.html",
+    "precache-manifest.d6847198d07340799bfa058b5463863a.js": "/sale-checker/precache-manifest.d6847198d07340799bfa058b5463863a.js",
+    "service-worker.js": "/sale-checker/service-worker.js",
+    "static/css/main.6c1a2dfd.chunk.css.map": "/sale-checker/static/css/main.6c1a2dfd.chunk.css.map",
+    "static/js/2.be7e763e.chunk.js.LICENSE.txt": "/sale-checker/static/js/2.be7e763e.chunk.js.LICENSE.txt",
+    "static/media/BtnsCtrlCardHeader.module.scss": "/sale-checker/static/media/minus.5ea71b59.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b1f915ff.js",
+    "static/js/2.be7e763e.chunk.js",
+    "static/css/main.6c1a2dfd.chunk.css",
+    "static/js/main.3850039c.chunk.js"
+  ]
+}
