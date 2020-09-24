@@ -1,7 +1,7 @@
 {   
     "modalFoodCard": {
-        "title": "Карточка товара",
-        "id": "food-card"
+        "title": "Карточка покупателя",
+        "id": "card-user"
     },
     "formInputsDescrSets": [
         {
@@ -54,6 +54,20 @@
             "label": "Вес",
             "inputName": "weight",
             "type": "number"
+        }
+    ],
+    "setsBtnsCtrlCardHeader": [
+        {
+            "title": "Отмена",
+            "type": "button"
+        },
+        {
+            "title": "ОК",
+            "type": "submitt"
+        },
+        {
+            "title": "Записать",
+            "type": "button"
         }
     ],
     "setsGlobalBtnsCard": [

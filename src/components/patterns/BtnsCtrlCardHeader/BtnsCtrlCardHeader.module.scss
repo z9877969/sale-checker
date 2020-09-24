@@ -1,0 +1,29 @@
+.btnsList {
+    display: flex;
+
+    & button {
+        padding: 0;
+        margin: 0;
+        width: 30px;
+        height: 30px;
+        
+    
+        &[data-action='turn'] {
+            background-image: url(../../../svg/minus.svg);
+        }
+    
+        &[data-action='fullSize'] {
+            background-image: url(../../../svg/files-empty.svg);
+        }
+    
+        &[data-action='close'] {
+            background-image: url(../../../svg/cross.svg);
+        }
+    
+        background-size: 20px 20px;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    
+}
+

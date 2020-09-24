@@ -12,7 +12,6 @@ import createStore from './createStore';
 // );
 
 const store = createStore;
-console.log('store :>> ', store);
 
 const render = Component => {
   return ReactDOM.render(

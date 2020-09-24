@@ -2,37 +2,53 @@ import React, {useState, useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 
 // import actions
-import {actionIsCardFoodsOpen} from '../redux/cardFoods/modalWindow/modalWindowAction';
+import {actionIsCardFoodOpen} from '../redux/cardFoods/actionCardFood';
+import {actionIsCardUserOpen} from '../redux/cardUser/actionCardUser';
 
 // import components
-import PageFoodCard from '../pages/pageFoodCard/PageFoodCard';
-import MenuList from '../components/utils/MenuList/MenuList';
+import TopMenu from '../components/general/TopMenu/TopMenu';
+import PageCardFood from '../pages/pageCardFood/pageCardFood';
+import PageCardUser from '../pages/pageCardUser/pageCardUser';
 
-import * as renderMenuData from '../utils/renderData/renderMenu.json';
-
+// import helpers
 import {getIdByEvent} from '../utils/helpers/helpers';
 import './App.module.scss';
 
 function App() {
   const dispatch = useDispatch();
-  // State
-  const isCardOpen = useSelector(state => state.cardFoods.modalWindow.isCardOpen);
-  const isCardClose = useSelector(state => state.cardFoods.modalWindow.isCardClose);
 
-  const [elDisplaying, setElDisplaying] = useState({});
-  const idArr = ["food-card"];
-  
+  // State
+  const isCardsOpen = useSelector(state => state.isCardsOpen);
+
+  // state
+  const [openId, setOpenId] = useState([]);
+
   // handlers
   const handlerCloseModal = e => {
-    const r = getIdByEvent(e, idArr);
-    console.log('r.id :>> ', r.id);
-    if(r.id === "food-card") {dispatch(actionIsCardFoodsOpen(false))}
+    const {action, actionId} = e.target.dataset;    
+    const handleCard = action && getIdByEvent(e, openId);
+    
+    if(action === "open") {
+      !openId.includes(actionId) && setOpenId([...openId, actionId]);      
+    }
+    if(action === "close" && handleCard.id === actionId) {
+      openId.includes(actionId) && setOpenId([...openId].filter(id => id !== actionId));
+    }
   } 
+
+  // effects
+  useEffect(() => {
+    openId.includes('card-food') && dispatch(actionIsCardFoodOpen(true));
+    !openId.includes('card-food') && dispatch(actionIsCardFoodOpen(false));
+    openId.includes('card-user') && dispatch(actionIsCardUserOpen(true));
+    !openId.includes('card-user') && dispatch(actionIsCardUserOpen(false));
+  }, [openId])
 
   return (
       <div onClick={handlerCloseModal}>
-        <MenuList renderData={renderMenuData.cards}/>
-        {isCardOpen && <PageFoodCard />}
+        <TopMenu />
+        {isCardsOpen.food && <PageCardFood />}
+        {isCardsOpen.user && <PageCardUser />}
       </div>
   );
 }

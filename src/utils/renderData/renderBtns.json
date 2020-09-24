@@ -1,0 +1,17 @@
+{
+    "btnsCtrlCardHeader": [
+        {
+            "type": "button",
+            "action": "turn"
+        },
+        {
+            "type": "button",
+            "action": "fullSize"
+        },
+        {
+            "type": "button",
+            "action": "close"
+        }
+
+    ]
+}

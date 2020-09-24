@@ -1,7 +1,20 @@
 {
-    "cards": [
+    "parrentBtns": [
         {
-            "title": "Карточка товара"
+            "actionId": "cards",
+            "title": "Карточки",
+                "cardsList": [
+                {
+                    "title": "Карточка товара",
+                    "action": "open",
+                    "actionId": "card-food"
+                },
+                {
+                    "title": "Карточка пользователя",
+                    "action": "open",
+                    "actionId": "card-user"
+                }
+            ]
         }
     ]
 }

@@ -1,10 +1,4 @@
-import React, {useState} from 'react';
-
-// label
-// name
-// value
-
-
+import React from 'react';
 
 const Input = ({props}) => {
 

@@ -14,7 +14,7 @@ const BtnsColection = props => {
     return (
         <ul style={styles.list}>
             {
-                dataRender.map(data => <li key={shortid.generate()}><Button title={data.title} type={data.type}/></li>)
+                dataRender.map(data => <li key={shortid.generate()}><Button props={data}/></li>)
             }
         </ul>
         

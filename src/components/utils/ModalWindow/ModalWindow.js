@@ -1,17 +1,17 @@
 import React from 'react';
 import Title from '../Title/Title';
-import BtnsCtrlHeader from '../BtnsCtrlHeader/BtnsCtrlHeader';
+import BtnsCtrlCardHeader from '../../patterns/BtnsCtrlCardHeader/BtnsCtrlCardHeader';
 import scss from './ModalWindow.module.scss';
 
 const ModalWindow = props => {
 
-    const {title, id} = props;
+    const {title, id, actionId} = props;
 
     return (
         <section id={id} className={scss.window}>
             <div className={scss.header}>
                 <Title title={title}/>    
-                <BtnsCtrlHeader />
+                <BtnsCtrlCardHeader actionId={actionId}/>
             </div>
             <div>
                 {props.children}
