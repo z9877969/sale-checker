@@ -27,6 +27,8 @@ function App() {
   const handlerCloseModal = e => {
     const {action, actionId} = e.target.dataset;    
     const handleCard = action && getIdByEvent(e, openId);
+
+    console.log('actionId_handle :>> ', actionId);
     
     if(action === "open") {
       !openId.includes(actionId) && setOpenId([...openId, actionId]);      
@@ -40,8 +42,12 @@ function App() {
   useEffect(() => {
     openId.includes('card-food') && dispatch(actionIsCardFoodOpen(true));
     !openId.includes('card-food') && dispatch(actionIsCardFoodOpen(false));
+    
+    
     openId.includes('card-user') && dispatch(actionIsCardUserOpen(true));
+    console.log('openId_eff :>> ', openId);
     !openId.includes('card-user') && dispatch(actionIsCardUserOpen(false));
+    // console.log('openId_eff :>> ', openId);
   }, [openId])
 
   return (
