@@ -1,0 +1,41 @@
+{
+    "parrentBtns": [
+        {
+            "actionId": "cards",
+            "title": "Карточки",
+                "cardsList": [
+                {
+                    "title": "Карточка товара",
+                    "action": "open",
+                    "actionId": "card-food"
+                },
+                {
+                    "title": "Карточка покупателя",
+                    "action": "open",
+                    "actionId": "card-customer"
+                },
+                {
+                    "title": "Карточка сотрудника",
+                    "action": "open",
+                    "actionId": "card-worker"
+                }
+            ]
+        },
+        {
+            "actionId": "list-log",
+            "title": "Журналы списков",
+                "cardsList": [
+                {
+                    "title": "Товары",
+                    "action": "open",
+                    "actionId": "list-foods"
+                },
+                {
+                    "title": "Покупатели",
+                    "action": "open",
+                    "actionId": "list-customers"
+                }
+            ]
+        }
+    ]
+}

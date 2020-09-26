@@ -2,8 +2,8 @@ import React, {useState, useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 
 // import actions
-import {actionIsCardFoodOpen} from '../redux/cardFoods/actionCardFood';
-import {actionIsCardUserOpen} from '../redux/cardUser/actionCardUser';
+import {actionIsCardFoodOpen} from '../redux/cards/cardFoods/actionCardFood';
+import {actionIsCardUserOpen} from '../redux/cards/cardUser/actionCardUser';
 
 // import components
 import TopMenu from '../components/general/TopMenu/TopMenu';
@@ -18,7 +18,7 @@ function App() {
   const dispatch = useDispatch();
 
   // State
-  const isCardsOpen = useSelector(state => state.isCardsOpen);
+  const isCardsOpen = useSelector(state => state.isOpen.cards);
 
   // state
   const [openId, setOpenId] = useState([]);
@@ -28,8 +28,6 @@ function App() {
     const {action, actionId} = e.target.dataset;    
     const handleCard = action && getIdByEvent(e, openId);
 
-    console.log('actionId_handle :>> ', actionId);
-    
     if(action === "open") {
       !openId.includes(actionId) && setOpenId([...openId, actionId]);      
     }
@@ -43,15 +41,12 @@ function App() {
     openId.includes('card-food') && dispatch(actionIsCardFoodOpen(true));
     !openId.includes('card-food') && dispatch(actionIsCardFoodOpen(false));
     
-    
     openId.includes('card-user') && dispatch(actionIsCardUserOpen(true));
-    console.log('openId_eff :>> ', openId);
     !openId.includes('card-user') && dispatch(actionIsCardUserOpen(false));
-    // console.log('openId_eff :>> ', openId);
   }, [openId])
 
   return (
-      <div onClick={handlerCloseModal}>
+      <div onClick={handlerCloseModal} >
         <TopMenu />
         {isCardsOpen.food && <PageCardFood />}
         {isCardsOpen.user && <PageCardUser />}

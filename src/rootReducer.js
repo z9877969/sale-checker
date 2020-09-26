@@ -12,10 +12,10 @@ import { combineReducers } from 'redux';
 //   key: 'location',
 //   storage,
 // };
-import {reducerIsCardsOpen} from './redux/reducers/reducerIsCardsOpen';
+import reducerIsOpen from './redux/reducers/reducerIsOpen';
 
 const rootReducer = combineReducers({
-    isCardsOpen: reducerIsCardsOpen,
+    isOpen: reducerIsOpen,
 });
 
 export default rootReducer;

@@ -2,9 +2,10 @@ import React from 'react';
 import Button from '../Button/Button';
 
 const MenuList = props => {
-    const {renderData} = props;
+    const {renderData, style} = props;
+    
     return (
-        <ul>
+        <ul style={style}>
             {renderData.map(data =>
                 {
                 return (<li>

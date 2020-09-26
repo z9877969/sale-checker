@@ -1,0 +1,19 @@
+@import '../utils/variables.scss';
+@import '../utils/mixins.scss';
+
+button {
+    // @include btn-menu-sizes($btn-font-sz, $btn-paddings-v);
+    position: relative;
+    padding: $btn-paddings-v 5px;
+    
+    text-align: left;
+
+    font-family: sans-serif;
+    font-size: $btn-font-sz;
+
+    cursor: pointer;
+
+    &:hover, &:focus {
+        font-size: calc(1em * 1.1);
+    }
+}

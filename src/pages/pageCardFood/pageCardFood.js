@@ -7,7 +7,7 @@ import Title from '../../components/utils/Title/Title';
 import scss from './pageCardFood.module.scss';
 import * as dataRender from '../../utils/renderData/renderCardFood.json';
 
-const PageFoodCard = (props) => {
+const PageFoodCard = () => {
         
     const {id, title} = dataRender.modalFoodCard;
     const {formInputsDescrSets, formSaleCtrlSets, formUnitsSets, setsLocalBtnsCard, setsGlobalBtnsCard} = dataRender.default;

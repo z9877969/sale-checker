@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import App from './App/App';
 import createStore from './createStore';
+import scss from './sass/index.scss';
 
 // ReactDOM.render(
 //   <React.StrictMode>
@@ -16,7 +17,7 @@ const store = createStore;
 const render = Component => {
   return ReactDOM.render(
     <Provider store={store}>          
-      <Component />          
+      <Component scss={scss}/>          
     </Provider>,
     document.getElementById('root'),
   );

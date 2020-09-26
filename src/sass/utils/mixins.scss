@@ -1,0 +1,12 @@
+@mixin btn-menu-sizes($f-size, $paddings-v) {
+    width: 100%;
+    height: calc($f-size(1 + 1.2) + $padding-v * 2);
+};
+
+// 1st radius at top left corner, the rest are arranged clockwise
+@mixin border-radiuses($_1st, $_2nd, $_3rd, $_4th){
+    border-top-left-radius: $_1st;
+    border-top-right-radius: $_2nd;
+    border-bottom-right-radius: $_3rd;
+    border-bottom-left-radius: $_4th;
+}
