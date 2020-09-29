@@ -4,9 +4,7 @@ import BtnsCtrlCardHeader from '../../patterns/BtnsCtrlCardHeader/BtnsCtrlCardHe
 import scss from './ModalWindow.module.scss';
 
 const ModalWindow = props => {
-
     const {title, id, actionId} = props;
-    console.log('actionId_modalWindow :>> ', actionId);
 
     return (
         <section id={id} className={scss.window}>

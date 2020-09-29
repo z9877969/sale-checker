@@ -1,4 +1,5 @@
 import React from 'react';
+import shortid from 'shortid';
 import Button from '../../utils/Button/Button';
 import * as renderBtns from '../../../utils/renderData/renderBtns.json';
 import scss from "./BtnsCtrlCardHeader.module.scss";
@@ -11,7 +12,7 @@ const BtnsCtrlCardHeader = ({actionId}) => {
             {dataRender.map(data => {
                
                 return (
-                    <li>
+                    <li key={shortid.generate()}>
                     <Button props={{...data, actionId}} />
                 </li>   
                 )

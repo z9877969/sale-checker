@@ -1,55 +1,17 @@
-import React, {useState, useEffect} from 'react';
-import {useSelector, useDispatch} from 'react-redux';
-
-// import actions
-import {actionIsCardFoodOpen} from '../redux/cards/cardFoods/actionCardFood';
-import {actionIsCardUserOpen} from '../redux/cards/cardUser/actionCardUser';
+import React from 'react';
 
 // import components
 import TopMenu from '../components/general/TopMenu/TopMenu';
-import PageCardFood from '../pages/pageCardFood/pageCardFood';
-import PageCardUser from '../pages/pageCardUser/pageCardUser';
+import CardsArea from '../components/general/CardsArea/CardsArea';
 
-// import helpers
-import {getIdByEvent} from '../utils/helpers/helpers';
+// // import helpers
 import './App.module.scss';
 
 function App() {
-  const dispatch = useDispatch();
-
-  // State
-  const isCardsOpen = useSelector(state => state.isOpen.cards);
-
-  // state
-  const [openId, setOpenId] = useState([]);
-
-  // handlers
-  const handlerCloseModal = e => {
-    const {action, actionId} = e.target.dataset;    
-    const handleCard = action && getIdByEvent(e, openId);
-
-    if(action === "open") {
-      !openId.includes(actionId) && setOpenId([...openId, actionId]);      
-    }
-    if(action === "close" && handleCard.id === actionId) {
-      openId.includes(actionId) && setOpenId([...openId].filter(id => id !== actionId));
-    }
-  } 
-
-  // effects
-  useEffect(() => {
-    openId.includes('card-food') && dispatch(actionIsCardFoodOpen(true));
-    !openId.includes('card-food') && dispatch(actionIsCardFoodOpen(false));
-    
-    openId.includes('card-user') && dispatch(actionIsCardUserOpen(true));
-    !openId.includes('card-user') && dispatch(actionIsCardUserOpen(false));
-  }, [openId])
-
   return (
-      <div onClick={handlerCloseModal} >
+      <div>
         <TopMenu />
-        {isCardsOpen.food && <PageCardFood />}
-        {isCardsOpen.user && <PageCardUser />}
+        <CardsArea />
       </div>
   );
 }

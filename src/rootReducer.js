@@ -12,10 +12,10 @@ import { combineReducers } from 'redux';
 //   key: 'location',
 //   storage,
 // };
-import reducerIsOpen from './redux/reducers/reducerIsOpen';
+import {reducerActiveStateEls} from './redux/activeStateElements/reducerActiveStateElements';
 
 const rootReducer = combineReducers({
-    isOpen: reducerIsOpen,
+    activeStateEls: reducerActiveStateEls,
 });
 
 export default rootReducer;

@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import shortid from 'shortid';
 import Input from '../../utils/Input/Input';
 import BtnsColection from '../BtnsColection/BtnsColection';
-import { postFoodsData } from '../../../utils/fetch/fetchForm';
+// import { postFoodsData } from '../../../utils/fetch/fetchForm';
 import scss from './FormInputData.module.scss';
 
 const InputDataForm = props => {
@@ -18,11 +18,11 @@ const InputDataForm = props => {
         obj[name] = value;
         setData({...data, ...obj});
     }
-    const handleFormSubmit = e => {
-        e.preventDefault();        
-        const id = shortid.generate();        
-        postFoodsData({id, ...data});
-    }
+    // const handleFormSubmit = e => {
+    //     e.preventDefault();        
+    //     const id = shortid.generate();        
+    //     postFoodsData({id, ...data});
+    // }
 
     return (
         
@@ -30,19 +30,25 @@ const InputDataForm = props => {
             onChange={handleGetInputData}
             // onSubmit={handleFormSubmit}
             >
-            {
-                dataRender.map(
-                    el => <Input 
-                    props={
-                        {
-                            label: el.label,
-                            inputName: el.nameIn,
-                            type: el.type ? el.type : "text"
-                        }
-                    }
-                />
-                )
-            }
+            <ul>
+                {
+                    dataRender.map(
+                        el => (
+                            <li key={dataRender.length > 1 ? shortid.generate() : ""}>
+                                <Input 
+                                    props={
+                                        {
+                                            label: el.label,
+                                            inputName: el.nameIn,
+                                            type: el.type ? el.type : "text"                            
+                                        }
+                                    }
+                                />
+                            </li>
+                        )
+                    )
+                }
+            </ul>
             <BtnsColection dataRender={btnsColSets} />
         </form>
 

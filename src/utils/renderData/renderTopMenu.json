@@ -1,7 +1,7 @@
 {
-    "parrentBtns": [
+    "generalMenuBtns": [
         {
-            "actionId": "cards",
+            "actionId": "MENU_cards",
             "title": "Карточки",
                 "cardsList": [
                 {
@@ -22,16 +22,16 @@
             ]
         },
         {
-            "actionId": "list-log",
+            "actionId": "MENU_list-log",
             "title": "Журналы списков",
                 "cardsList": [
                 {
-                    "title": "Товары",
+                    "title": "Список товаров",
                     "action": "open",
                     "actionId": "list-foods"
                 },
                 {
-                    "title": "Покупатели",
+                    "title": "Список покупателей",
                     "action": "open",
                     "actionId": "list-customers"
                 }

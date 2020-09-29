@@ -9,7 +9,7 @@ const Button = ({props}) => {
        <button 
        type={type ? type : "button"} data-action={getPropsAttribute(action)}  data-action-id={getPropsAttribute(actionId)}
     >
-        <span>{getPropsAttribute(title)}</span>
+        {getPropsAttribute(title)}
        </button>
     )
 }

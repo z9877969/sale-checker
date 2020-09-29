@@ -1,5 +1,3 @@
-import {combineReducers} from 'redux';
-
 export const ActionType = {
     IS_CARD_USER_OPEN: "IS_CARD_USER_OPEN", 
 }

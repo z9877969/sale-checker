@@ -8,7 +8,7 @@
         height: 30px;
         
     
-        &[data-action='turn'] {
+        &[data-action-type='turn'] {
             background-image: url(../../../svg/minus.svg);
         }
     
