@@ -1,8 +1,8 @@
 import {combineReducers} from 'redux';
 import {isCardFoodOpenReducer} from './cardFoods/reducerCardFood';
-import {isCardUserOpenReducer} from './cardUser/reducerCardUser';
+import {isCardCustomerOpenReducer} from './cardCustomer/reducerCardCustomer';
 
 export const reducerIsCardsOpen = combineReducers({
     food: isCardFoodOpenReducer,
-    user: isCardUserOpenReducer,
+    user: isCardCustomerOpenReducer,
 })

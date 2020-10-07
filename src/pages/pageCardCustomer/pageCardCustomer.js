@@ -7,14 +7,14 @@ import BtnsFinished from '../../components/patterns/BtnsColection/BtnsColection'
 import Title from '../../components/utils/Title/Title';
 
 // imp utils
-import * as dataRender from '../../utils/renderData/renderCardUser.json';
+import * as dataRender from '../../utils/renderData/renderCardCustomer.json';
 
 // imp styles
-import scss from './pageCardUser.module.scss';
+import scss from './pageCardCustomer.module.scss';
 
-const PageCardUser = () => {
+const PageCardCustomer = () => {
 
-    const {id, title} = dataRender.modalCardUser;
+    const {id, title} = dataRender.modalCardCustomer;
     const {formInputsDescrSets, formSaleCtrlSets, formUnitsSets, setsLocalBtnsCard, setsGlobalBtnsCard} = dataRender.default;
 
     return (
@@ -37,4 +37,4 @@ const PageCardUser = () => {
     )
 }
 
-export default PageCardUser;
+export default PageCardCustomer;

@@ -1,10 +1,7 @@
 @import "../../../sass/utils/mixins.scss";
 
 .topMenu {
-    margin-bottom: 2px;
-    padding: 20px 15px;
-    background-color: antiquewhite;
-    border: 1px solid #212121;
+    @include content-block-space(0.5em, 1em, antiquewhite);
 }
 
 .list {
@@ -24,7 +21,6 @@
 
     // primary btn nav 
     & button {
-        // padding: 10px 30px;
         font-weight: bold;
     }
 

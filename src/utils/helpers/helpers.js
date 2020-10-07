@@ -5,9 +5,9 @@
 // }
 // dataArr.length > 0 && dataArr.find(spec => spec.dataName === name) && dataArr.find(spec => spec.dataName === name).dataValue || name === name && value || "";
 
-export const getIdByEvent = (target, idArr) => {
+export const getElPropsByEvent = (target, idArr) => {
     const {action, actionId} = target.dataset;
-    const parent =  idArr.find(el => target.closest(`#${el.id}`));  
+    const parent =  idArr.find(el => target.closest(`#${el.id}`))["id"];  
 
     if (action === "close") return {
         id: parent,

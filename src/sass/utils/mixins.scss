@@ -10,3 +10,10 @@
     border-bottom-right-radius: $_3rd;
     border-bottom-left-radius: $_4th;
 }
+
+@mixin content-block-space($_padd_vertic, $_padd_horisont, $_bg_color){
+    // margin-bottom: 2px;
+    padding: $_padd_vertic $_padd_horisont;
+    background-color: $_bg_color;
+    border: 1px solid #212121;
+}

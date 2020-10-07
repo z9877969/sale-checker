@@ -1,0 +1,13 @@
+@import '../../../sass/utils/mixins.scss';
+
+.footer {
+    position: relative;
+
+    text-align: center;
+    @include content-block-space(5px, 20px, antiquewhite);
+
+    font-family: serif;
+    font-size: 0.8em;
+    font-weight: 700;
+    font-style: italic;
+}

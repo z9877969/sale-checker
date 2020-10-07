@@ -1,7 +1,7 @@
 {   
-    "modalCardUser": {
+    "modalCardCustomer": {
         "title": "Карточка покупателя",
-        "id": "card-user"
+        "id": "card-customer"
     },
     "formInputsDescrSets": [
         {

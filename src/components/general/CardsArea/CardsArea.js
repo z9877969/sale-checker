@@ -6,10 +6,10 @@ import {actionOpenEl, actionCloseEl} from '../../../redux/activeStateElements/ac
 
 // import components
 import PageCardFood from '../../../pages/pageCardFood/pageCardFood';
-import PageCardUser from '../../../pages/pageCardUser/pageCardUser';
+import PageCardCustomer from '../../../pages/pageCardCustomer/pageCardCustomer';
 
 // import helpers
-import {getIdByEvent} from '../../../utils/helpers/helpers';
+import {getElPropsByEvent} from '../../../utils/helpers/helpers';
 import './CardsArea.module.scss';
 
 // helpers
@@ -28,40 +28,38 @@ const CardsArea = () => {
   
 
   // state
-  const [activeElId, setActiveElId] = useState("");
+  const [activeElProp, setActiveElProp] = useState("");
   const [activeElAction, setActiveElAction] = useState("");
   
   // handlers
   const handlerActiveStateEl = ({target}) => {
     const {action, actionId} = target.dataset;    
-    const activeElId = action && getIdByEvent(target, activeStateEls);
+    const activeElId = action && getElPropsByEvent(target, activeStateEls).id;
   
     if(action === "open") {
-      !isActiveEl(activeStateEls, actionId) && setActiveElId(actionId);      
+      !isActiveEl(activeStateEls, actionId) && setActiveElProp(actionId);      
     };
-    if(action === "close" && activeElId.id === actionId) {
-      isActiveEl(activeStateEls, actionId) && setActiveElId("");
+    if(action === "close" && activeElId === actionId) {
+      console.log('activeElId.id :>> ', activeElId);
     };
     setActiveElAction(action);
   }
 
   // effects
   useEffect(() => {
-    let currentAction = activeStateEls.length > 0 && Object.keys([...activeStateEls].pop())[0];
+    let currentAction = activeStateEls.length > 0 && Object.keys(activeStateEls.slice(-1))[0];
   
-    if(activeElId) {
-      const payload = getDispatchData(activeElId, currentAction);
-      // const payload = getDispatchData(activeElId, activeElAction);
+    if(activeElProp) {
+      const payload = getDispatchData(activeElProp, currentAction);
       dispatch(actionOpenEl(payload));
     } 
-    !activeElId && dispatch(actionCloseEl(activeElId));
-    // !activeElId && dispatch(actionCloseEl(activeElId));
-  }, [activeElId]);
+    activeElProp && activeElAction === "close" && dispatch(actionCloseEl(activeElProp));
+  }, [activeElProp]);
 
   return (
       <div onClick={handlerActiveStateEl} >
         {isActiveEl(activeStateEls, "card-food") && <PageCardFood />}
-        {isActiveEl(activeStateEls, "card-user") && <PageCardUser />}
+        {isActiveEl(activeStateEls, "card-customer") && <PageCardCustomer />}
       </div>
   );
 }
