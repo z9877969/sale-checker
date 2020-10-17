@@ -9,16 +9,16 @@ import PageCardFood from '../../../pages/pageCardFood/pageCardFood';
 import PageCardCustomer from '../../../pages/pageCardCustomer/pageCardCustomer';
 
 // import helpers
-import {getElPropsByEvent} from '../../../utils/helpers/helpers';
+import {getElPropsByEvent, getDispatchData} from '../../../utils/helpers/helpers';
 import './CardsArea.module.scss';
 
 // helpers
-const isActiveEl = (activeEls, id) => activeEls.find(el => el.id === id);
-const getDispatchData = (id, action) => {  
-  const payload = {id};
-  payload[action] = true;
-  return payload;
-};
+const isActiveEl = (activeEls, id) => activeEls.find(el => el && el.id === id);
+// const getDispatchData = (id, action) => {  
+//   const payload = {id};
+//   payload[action] = true;
+//   return payload;
+// };
 
 const CardsArea = () => {
   const dispatch = useDispatch();
@@ -26,39 +26,54 @@ const CardsArea = () => {
   // State
   const activeStateEls = useSelector(state => state.activeStateEls);
   
-
   // state
   const [activeElProp, setActiveElProp] = useState("");
   const [activeElAction, setActiveElAction] = useState("");
+  const [cardTitle, setCardTitle] = useState("");
   
   // handlers
   const handlerActiveStateEl = ({target}) => {
     const {action, actionId} = target.dataset;    
-    const activeElId = action && getElPropsByEvent(target, activeStateEls).id;
-  
-    if(action === "open") {
-      !isActiveEl(activeStateEls, actionId) && setActiveElProp(actionId);      
-    };
-    if(action === "close" && activeElId === actionId) {
-      console.log('activeElId.id :>> ', activeElId);
-    };
+    const activeId = action && getElPropsByEvent(target, activeStateEls)["id"];    
+      
+    action === "open" && !isActiveEl(activeStateEls, actionId) && setActiveElProp(actionId);      
+    action === "close" && activeId === actionId && setActiveElProp(actionId);
+    
+    if(action === "turn"){
+      const title = target.closest('ul').previousElementSibling.textContent;
+      setCardTitle(title);
+      setActiveElProp(actionId);
+    }
+
     setActiveElAction(action);
   }
 
   // effects
   useEffect(() => {
-    let currentAction = activeStateEls.length > 0 && Object.keys(activeStateEls.slice(-1))[0];
+    // const currentAction = activeElAction;
   
     if(activeElProp) {
-      const payload = getDispatchData(activeElProp, currentAction);
+      const payload = getDispatchData(activeElProp, activeElAction);
       dispatch(actionOpenEl(payload));
     } 
-    activeElProp && activeElAction === "close" && dispatch(actionCloseEl(activeElProp));
-  }, [activeElProp]);
+  
+    if(activeElProp && activeElAction === "close"){
+      dispatch(actionCloseEl(activeElProp));
+    }
+
+    if(activeElAction === "turn" && cardTitle){    
+      const payload = getDispatchData(activeElProp, activeElAction);
+      payload.title = cardTitle;
+
+      dispatch(actionOpenEl(payload));
+      setCardTitle("");
+    }
+
+  }, [activeElProp, activeElAction === "turn"]);
 
   return (
       <div onClick={handlerActiveStateEl} >
-        {isActiveEl(activeStateEls, "card-food") && <PageCardFood />}
+        {activeStateEls.length > 0 && isActiveEl(activeStateEls, "card-food") && activeElAction !== "turn" && <PageCardFood />}
         {isActiveEl(activeStateEls, "card-customer") && <PageCardCustomer />}
       </div>
   );

@@ -1,0 +1,29 @@
+@import '../../../sass/utils/mixins.scss';
+
+.label {
+    display: flex;
+    align-items: center;
+    @include content-block-space(0.2em, 1em, rgb(168, 172, 157));
+
+    & .title {
+        margin-right: 0.8em;
+    }
+
+    & button {
+        width: 2em;
+        height: 2em;
+        padding: 0.5em;
+
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 80%;
+
+        &[data-action="close"] {
+            background-image: url(../../../svg/cross.svg);
+        }
+
+        &[data-action="turn"] {
+            background-image: url(../../../svg/minus.svg);
+        }
+    }
+}

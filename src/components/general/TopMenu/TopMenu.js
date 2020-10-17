@@ -4,6 +4,7 @@ import {useSelector, useDispatch} from 'react-redux';
 // imp components
 import Button from '../../utils/Button/Button';
 import MenuList from '../../utils/MenuList/MenuList';
+
 // imp styles
 import scss from './TopMenu.module.scss';
 
@@ -13,51 +14,41 @@ import renderMenu from '../../../utils/renderData/renderTopMenu.json';
 // imp actions
 import {actionOpenEl, actionCloseEl} from '../../../redux/activeStateElements/actionActiveStateElements';
 
+// imp helpers
+import {getDispatchData} from '../../../utils/helpers/helpers';
 
 const {generalMenuBtns} = renderMenu;    
 
-// const style = {
-//     hidden: {
-//         display: "none",
-//     },
-//     visible: {
-//         display: "block",
-//     }
-// }
-// const defaultStyle = style.hidden;
-// const activeStyle = style.visible;
-
 const TopMenu = () => {
     const dispatch = useDispatch();
-
+    
     // State
-    const topMenuActiveItem = useSelector(state => state.activeStateEls).find(el => el && el.id.includes("MENU_"));
+    const topMenuActiveItem = useSelector(state => state.activeStateEls)
+    console.log('topMenuActiveItem :>> ', topMenuActiveItem);
+    // .find(el => el.id && el.id.includes("MENU_"));
     
     // state
     const [idActiveMenuItem, setIdActiveMenuItem] = useState("");
-
+    
     // handlers
     const handlerToogleListMenuActive = ({target}) => {        
         if(target.nodeName === "BUTTON"){
             const menuActive = target.closest("[data-action-id]");
             const menuActiveId = menuActive.dataset.actionId;
-    
-            setIdActiveMenuItem(menuActiveId);
+            
+            // setIdActiveMenuItem(menuActiveId);
         }
     }
-
-    // effects
-    useEffect(() => {
-        if(idActiveMenuItem) {
-            const payload = {
-                id: idActiveMenuItem,
-                action: "open",
-            };
     
-            dispatch(actionOpenEl(payload));
-        }
-        topMenuActiveItem && dispatch(actionCloseEl(topMenuActiveItem.id));
-    }, [idActiveMenuItem]);
+    // effects
+    console.log("topmenu");
+    // useEffect(() => {
+    //     if(idActiveMenuItem) {
+    //         const payload = getDispatchData(idActiveMenuItem, "open");
+    //         dispatch(actionOpenEl(payload));
+    //     }
+    //     // topMenuActiveItem && dispatch(actionCloseEl(topMenuActiveItem.id));
+    // }, [idActiveMenuItem]);
 
     return (
         <header onClick={handlerToogleListMenuActive} className={scss.topMenu}>

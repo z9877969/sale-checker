@@ -10,4 +10,16 @@
     font-size: 0.8em;
     font-weight: 700;
     font-style: italic;
+
+    .list {
+        position: absolute;
+        bottom: 75%;
+        left: 0;
+
+        display: flex;
+
+        & > li + li {
+            margin-left: 0.2em;
+        }
+    }
 }

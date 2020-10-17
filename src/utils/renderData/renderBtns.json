@@ -9,5 +9,13 @@
         {
             "action": "close"
         }
+    ],
+    "btnsCtrlMarkCard": [
+        {
+            "action": "turn"
+        },
+        {
+            "action": "close"
+        }
     ]
 }
