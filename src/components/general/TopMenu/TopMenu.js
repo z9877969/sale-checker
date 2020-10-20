@@ -24,8 +24,8 @@ const TopMenu = () => {
     
     // State
     const topMenuActiveItem = useSelector(state => state.activeStateEls)
+    .find(el => el.id && el.id.includes("MENU_"));
     console.log('topMenuActiveItem :>> ', topMenuActiveItem);
-    // .find(el => el.id && el.id.includes("MENU_"));
     
     // state
     const [idActiveMenuItem, setIdActiveMenuItem] = useState("");
@@ -36,19 +36,18 @@ const TopMenu = () => {
             const menuActive = target.closest("[data-action-id]");
             const menuActiveId = menuActive.dataset.actionId;
             
-            // setIdActiveMenuItem(menuActiveId);
+            setIdActiveMenuItem(menuActiveId);
         }
     }
     
     // effects
-    console.log("topmenu");
-    // useEffect(() => {
-    //     if(idActiveMenuItem) {
-    //         const payload = getDispatchData(idActiveMenuItem, "open");
-    //         dispatch(actionOpenEl(payload));
-    //     }
-    //     // topMenuActiveItem && dispatch(actionCloseEl(topMenuActiveItem.id));
-    // }, [idActiveMenuItem]);
+    useEffect(() => {
+        if(idActiveMenuItem) {
+            const payload = getDispatchData(idActiveMenuItem, "open");
+            dispatch(actionOpenEl(payload));
+        }
+        topMenuActiveItem && dispatch(actionCloseEl(topMenuActiveItem.id));
+    }, [idActiveMenuItem]);
 
     return (
         <header onClick={handlerToogleListMenuActive} className={scss.topMenu}>

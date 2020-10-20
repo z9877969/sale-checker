@@ -51,11 +51,11 @@ const BottomBar = () => {
 
 
     // effects
-    useEffect(() => {
-        const payload = getDispatchData(marks.id, activeElAction);
+    // useEffect(() => {
+    //     const payload = getDispatchData(marks.id, activeElAction);
         
-        dispatch(actionOpenEl(payload));
-    }, [marks])
+    //     dispatch(actionOpenEl(payload));
+    // }, [marks])
 
     return (
         <footer className={scss.footer} onClick={handlerActiveStateEl}>
