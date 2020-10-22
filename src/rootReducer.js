@@ -12,7 +12,9 @@ import { combineReducers } from 'redux';
 //   key: 'location',
 //   storage,
 // };
-import {reducerActiveStateEls} from './redux/activeStateElements/reducerActiveStateElements';
+// import {reducerActiveStateEls} from './redux/activeStateElements/reducerActiveStateElements';
+// import {reducerIsTopMenuListOpen} from './redux/topMenu/reducerTopMenu';
+import {reducerActiveStateEls} from './redux/reducersGroups/reducersActiveStateEls';
 
 const rootReducer = combineReducers({
     activeStateEls: reducerActiveStateEls,

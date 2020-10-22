@@ -1,16 +1,16 @@
+const initialState = [];
+
 export const ActionType = {
-    IS_TOP_MENU_LIST_OPEN: "IS_TOP_MENU_LIST_OPEN",
+    OPEN_TOP_MENU_LIST: "OPEN_TOP_MENU_LIST",
+    CLOSE_TOP_MENU_LIST: "CLOSE_TOP_MENU_LIST",
 };
 
-const initial = {
-    id: "",
-    isOpen: false,
-}
-
-export const reducerIsTopMenuListOpen = (state = initial, {type, payload}) => {
+export const reducerOpenTopMenuList = (state = initialState, {type, payload}) => {
     switch (type) {
-        case ActionType.IS_TOP_MENU_LIST_OPEN:
-            return payload;    
+        case ActionType.OPEN_TOP_MENU_LIST:
+            return [...state, payload];    
+        case ActionType.CLOSE_TOP_MENU_LIST:
+            return state.filter(el => el.id !== payload) 
         default:
             return state;
     }

@@ -12,7 +12,8 @@ import scss from './TopMenu.module.scss';
 import renderMenu from '../../../utils/renderData/renderTopMenu.json';
 
 // imp actions
-import {actionOpenEl, actionCloseEl} from '../../../redux/activeStateElements/actionActiveStateElements';
+import {actionOpenTopMenu, actionCloseTopMenu} from '../../../redux/topMenu/actionTopMenu';
+import {actionOpenCard} from '../../../redux/cards/actionOpenCard';
 
 // imp helpers
 import {getDispatchData} from '../../../utils/helpers/helpers';
@@ -23,7 +24,7 @@ const TopMenu = () => {
     const dispatch = useDispatch();
     
     // State
-    const topMenuActiveItem = useSelector(state => state.activeStateEls)
+    const topMenuActiveItem = useSelector(state => state.activeStateEls.openTopMenu)
     .find(el => el.id && el.id.includes("MENU_"));
     console.log('topMenuActiveItem :>> ', topMenuActiveItem);
     
@@ -32,21 +33,20 @@ const TopMenu = () => {
     
     // handlers
     const handlerToogleListMenuActive = ({target}) => {        
-        if(target.nodeName === "BUTTON"){
-            const menuActive = target.closest("[data-action-id]");
-            const menuActiveId = menuActive.dataset.actionId;
-            
-            setIdActiveMenuItem(menuActiveId);
-        }
+        if(target.nodeName !== "BUTTON") return;
+        
+        const menuActive = target.closest("[data-action-id]");
+        const menuActiveId = menuActive.dataset.actionId;
+        setIdActiveMenuItem(menuActiveId);
     }
     
     // effects
     useEffect(() => {
-        if(idActiveMenuItem) {
-            const payload = getDispatchData(idActiveMenuItem, "open");
-            dispatch(actionOpenEl(payload));
-        }
-        topMenuActiveItem && dispatch(actionCloseEl(topMenuActiveItem.id));
+        let payload = getDispatchData(idActiveMenuItem, "open");
+
+        idActiveMenuItem.includes("MENU_") && dispatch(actionOpenTopMenu(payload));
+        topMenuActiveItem && dispatch(actionCloseTopMenu(topMenuActiveItem.id));
+        topMenuActiveItem && dispatch(actionOpenCard(payload));
     }, [idActiveMenuItem]);
 
     return (
@@ -55,7 +55,7 @@ const TopMenu = () => {
                 <ul className={scss.list}>
                     {generalMenuBtns.map(el => (
                         <li className={scss.item} key={"topMenu" + el.actionId}>
-                            <Button props={el} />
+                            <Button props={el} />   
                             {topMenuActiveItem && el.actionId === topMenuActiveItem.id && <MenuList renderData={el.cardsList}/>}
                         </li>
                     )

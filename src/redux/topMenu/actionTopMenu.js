@@ -1,6 +1,11 @@
 import {ActionType} from './reducerTopMenu';
 
-export const actionIsTopMenuListOpen = ({id, isOpen}) => ({
-    type: ActionType.IS_TOP_MENU_LIST_OPEN,
-    payload: {id, isOpen},
+export const actionOpenTopMenu = (payload) => ({
+    type: ActionType.OPEN_TOP_MENU_LIST,
+    payload: payload    
 });
+
+export const actionCloseTopMenu = (id) => ({
+    type: ActionType.CLOSE_TOP_MENU_LIST,
+    payload: id,
+})

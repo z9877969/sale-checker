@@ -2,7 +2,8 @@ import React, {useState, useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 
 // import actions
-import {actionOpenEl, actionCloseEl} from '../../../redux/activeStateElements/actionActiveStateElements';
+// import {actionOpenCard, actionCloseCard} from '../../../redux/activeStateElements/actionActiveStateElements';
+import {actionOpenCard, actionCloseCard} from '../../../redux/cards/actionOpenCard';
 
 // import components
 import PageCardFood from '../../../pages/pageCardFood/pageCardFood';
@@ -24,12 +25,15 @@ const CardsArea = () => {
   const dispatch = useDispatch();
   
   // State
-  const activeStateEls = useSelector(state => state.activeStateEls);
+  const activeStateEls = useSelector(state => state.activeStateEls.openCards);
+  const activeTopMenuList = useSelector(state => state.activeStateEls.openTopMenu);
+  console.log('activeTopMenuList :>> ', activeTopMenuList);
   
   // state
   const [activeElProp, setActiveElProp] = useState("");
   const [activeElAction, setActiveElAction] = useState("");
   const [cardTitle, setCardTitle] = useState("");
+  const [styles, setStyles] = useState({})
   
   // handlers
   const handlerActiveStateEl = ({target}) => {
@@ -49,23 +53,21 @@ const CardsArea = () => {
   }
 
   // effects
-  useEffect(() => {
-    // const currentAction = activeElAction;
-  
-    if(activeElProp) {
-      const payload = getDispatchData(activeElProp, activeElAction);
-      dispatch(actionOpenEl(payload));
-    } 
+  useEffect(() => {  
+    // if(activeElProp) {
+    //   const payload = getDispatchData(activeElProp, activeElAction);
+    //   // dispatch(actionOpenCard(payload));
+    // } 
   
     if(activeElProp && activeElAction === "close"){
-      dispatch(actionCloseEl(activeElProp));
+      dispatch(actionCloseCard(activeElProp));
     }
 
     if(activeElAction === "turn" && cardTitle){    
       const payload = getDispatchData(activeElProp, activeElAction);
-      payload.title = cardTitle;
+        payload.title = cardTitle;
 
-      dispatch(actionOpenEl(payload));
+      dispatch(actionOpenCard(payload));
       setCardTitle("");
     }
 
@@ -73,8 +75,8 @@ const CardsArea = () => {
 
   return (
       <div onClick={handlerActiveStateEl} >
-        {activeStateEls.length > 0 && isActiveEl(activeStateEls, "card-food") && activeElAction !== "turn" && <PageCardFood />}
-        {isActiveEl(activeStateEls, "card-customer") && <PageCardCustomer />}
+        {isActiveEl(activeStateEls, "card-food") && activeElAction !== "turn" && <PageCardFood />}
+        {isActiveEl(activeStateEls, "card-customer") && activeElAction !== "turn" && <PageCardCustomer />}
       </div>
   );
 }

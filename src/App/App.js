@@ -14,7 +14,7 @@ function App() {
       <div className={app}>
         <TopMenu />
         <CardsArea />
-        <BottomBar />
+        {/* <BottomBar /> */}
       </div>
   );
 }
