@@ -7,16 +7,15 @@ export const ActionType = {
 }
 
 const updateActionActiveEl = (state, payload) => state.find(el => {
-    // console.log('el.id === payload.id :>> ', el.id === payload.id);
     return el.id === payload.id}) ? 
-                    [...state.filter(el => el.id !== payload.id), payload] : 
-                    [...state, payload];
+                    [payload, ...state.filter(el => el.id !== payload.id)] : 
+                    [payload, ...state];
 
 export const reducerOpenCards = (state = initialState, {type, payload}) => {
     switch (type) {
         case ActionType.OPEN_CARD:
             console.log('payload_OPEN_Card :>> ', payload);
-            // return updateActionActiveEl(state, payload);
+            return updateActionActiveEl(state, payload);
         case ActionType.TURN_CARD:
             return updateActionActiveEl(state, payload);
         case ActionType.CLOSE_CARD:

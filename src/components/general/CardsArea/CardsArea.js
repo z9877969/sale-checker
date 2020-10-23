@@ -10,11 +10,11 @@ import PageCardFood from '../../../pages/pageCardFood/pageCardFood';
 import PageCardCustomer from '../../../pages/pageCardCustomer/pageCardCustomer';
 
 // import helpers
-import {getElPropsByEvent, getDispatchData} from '../../../utils/helpers/helpers';
+import {getElPropsByEvent, getDispatchData, isActiveEl} from '../../../utils/helpers/helpers';
 import './CardsArea.module.scss';
 
 // helpers
-const isActiveEl = (activeEls, id) => activeEls.find(el => el && el.id === id);
+// const isActiveEl = (activeEls, id) => activeEls.find(el => el && el.id === id);
 
 const CardsArea = () => {
   const dispatch = useDispatch();

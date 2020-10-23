@@ -3,7 +3,7 @@ import React from 'react';
 // import components
 import TopMenu from '../components/general/TopMenu/TopMenu';
 import CardsArea from '../components/general/CardsArea/CardsArea';
-import BottomBar from '../components/general/BottomBar/BottomBar';
+import StatusBar from '../components/general/StatusBar/StatusBar';
 
 // // import helpers
 import './App.module.scss';
@@ -14,7 +14,7 @@ function App() {
       <div className={app}>
         <TopMenu />
         <CardsArea />
-        {/* <BottomBar /> */}
+        <StatusBar />
       </div>
   );
 }
