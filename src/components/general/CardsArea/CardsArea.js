@@ -15,11 +15,6 @@ import './CardsArea.module.scss';
 
 // helpers
 const isActiveEl = (activeEls, id) => activeEls.find(el => el && el.id === id);
-// const getDispatchData = (id, action) => {  
-//   const payload = {id};
-//   payload[action] = true;
-//   return payload;
-// };
 
 const CardsArea = () => {
   const dispatch = useDispatch();
@@ -27,13 +22,12 @@ const CardsArea = () => {
   // State
   const activeStateEls = useSelector(state => state.activeStateEls.openCards);
   const activeTopMenuList = useSelector(state => state.activeStateEls.openTopMenu);
-  console.log('activeTopMenuList :>> ', activeTopMenuList);
   
   // state
   const [activeElProp, setActiveElProp] = useState("");
   const [activeElAction, setActiveElAction] = useState("");
   const [cardTitle, setCardTitle] = useState("");
-  const [styles, setStyles] = useState({})
+  const [styles, setStyles] = useState({});
   
   // handlers
   const handlerActiveStateEl = ({target}) => {
@@ -70,7 +64,6 @@ const CardsArea = () => {
       dispatch(actionOpenCard(payload));
       setCardTitle("");
     }
-
   }, [activeElProp, activeElAction === "turn"]);
 
   return (
