@@ -26,34 +26,34 @@ const BottomBar = () => {
     const marks = activeStateEls.openCards.filter(el => el && el.turn);
 
     // state
-    const [activeElAction, setActiveElAction] = useState([]);
-    const [activeElId, setActiveElId] = useState([]);
-    const [cardTitle, setCardTitle] = useState("");
+    // const [activeElAction, setActiveElAction] = useState([]);
+    // const [activeElId, setActiveElId] = useState([]);
+    // const [cardTitle, setCardTitle] = useState("");
 
     // handlers
-    const handlerActiveStateEl = ({target}) => {
-      const {action, actionId} = target.dataset;    
-      const activeId = action && getElPropsByEvent(target, activeStateEls)["id"];    
+    // const handlerActiveStateEl = ({target}) => {
+    //   const {action, actionId} = target.dataset;
+    //   const activeId = action && getElPropsByEvent(target, activeStateEls)["id"];    
 
-      action === "open" && !isActiveEl(activeStateEls, actionId) && setActiveElId(actionId);      
-      action === "close" && activeId === actionId && setActiveElId(actionId);
+    // //   action === "open" && !isActiveEl(activeStateEls, actionId) && setActiveElId(actionId);      
+    //   action === "close" && activeId === actionId && setActiveElId(actionId);
 
-      if(action === "turn"){
-        const title = target.closest('ul').previousElementSibling.textContent;
-        setCardTitle(title);
-        setActiveElId(actionId);
-      }
+    //   if(action === "turn"){
+    //     const title = target.closest('ul').previousElementSibling.textContent;
+    //     setCardTitle(title);
+    //     setActiveElId(actionId);
+    //   }
 
-      setActiveElAction(action);
-    }
+    //   setActiveElAction(action);
+    // }
 
 
     // effects
-    useEffect(() => {
-    //     const payload = getDispatchData(marks.id, activeElAction);
-        console.log('marks_effects_BottomBar :>> ', marks);
-    //     dispatch(actionOpenEl(payload));
-    }, [marks])
+    // useEffect(() => {
+    // //     const payload = getDispatchData(marks.id, activeElAction);
+    //     console.log('marks_effects_BottomBar :>> ', marks);
+    // //     dispatch(actionOpenEl(payload));
+    // }, [marks])
 
     return (
         <footer className={scss.footer} onClick={handlerActiveStateEl}>
