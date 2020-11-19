@@ -19,7 +19,7 @@ export const reducerOpenCards = (state = initialState, {type, payload}) => {
         case ActionType.TURN_CARD:
             return updateActionActiveEl(state, payload);
         case ActionType.CLOSE_CARD:
-            return [...state].filter(el => el.id !== payload);
+            return state.filter(el => el.id !== payload);
         default:
             return state;
     }

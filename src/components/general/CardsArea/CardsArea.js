@@ -53,6 +53,10 @@ const CardsArea = () => {
     //   // dispatch(actionOpenCard(payload));
     // } 
   
+    // if(activeElProp && activeElAction === "open"){
+    //   dispatch(actionOpenCard(activeElProp));
+    // }
+
     if(activeElProp && activeElAction === "close"){
       dispatch(actionCloseCard(activeElProp));
     }
@@ -65,6 +69,8 @@ const CardsArea = () => {
       setCardTitle("");
     }
   }, [activeElProp, activeElAction === "turn"]);
+
+console.log('isActiveEl(activeStateEls, "card-customer") :>> ', isActiveEl(activeStateEls, "card-customer"));
 
   return (
       <div onClick={handlerActiveStateEl} >

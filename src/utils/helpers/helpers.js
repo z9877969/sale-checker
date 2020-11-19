@@ -1,6 +1,10 @@
 export const getElPropsByEvent = (target, idArr) => {
     const {action, actionId} = target.dataset;
-    const parent =  idArr.find(el => target.closest(`#${el.id}`))["id"];  
+    // console.log('target.closest() :>> ', target.closest(`[data-action-id="${el}"]`));
+    const parent =  idArr.find(el => {
+        console.log('target.closest :>> ',target.closest(`[data-action-id]`));
+        return target.closest(`#${el.id}`) || target.closest(`[data-action-id]`)
+    })["id"];  
 
     switch(action){
         case "open":

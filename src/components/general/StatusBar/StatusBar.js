@@ -5,7 +5,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import MarkCard from '../../patterns/MarkCard/MarkCard';
 
 // imp actions
-import {actionOpenEl} from '../../../redux/activeStateElements/actionActiveStateElements';
+import {actionCloseCard} from '../../../redux/cards/actionOpenCard';
 
 // imp helpers
 import {getDispatchData, getElPropsByEvent, isActiveEl} from '../../../utils/helpers/helpers';
@@ -16,36 +16,37 @@ import {handlerActiveStateEl} from '../../../utils/helpers/handlers';
 // styles
 import scss from './StatusBar.module.scss';
 
-const updateActionActiveEl = actionOpenEl;
+// const updateActionActiveEl = actionOpenEl;
 
 const BottomBar = () => {
     const dispatch = useDispatch();
 
     // State
-    const activeStateEls = useSelector(state => state.activeStateEls);
-    const marks = activeStateEls.openCards.filter(el => el && el.turn);
+    const openCards = useSelector(state => state.activeStateEls.openCards);
+    const marks = openCards.filter(el => el && el.turn);
 
     // state
-    // const [activeElAction, setActiveElAction] = useState([]);
-    // const [activeElId, setActiveElId] = useState([]);
-    // const [cardTitle, setCardTitle] = useState("");
+    const [activeElAction, setActiveElAction] = useState([]);
+    const [activeElId, setActiveElId] = useState([]);
+    const [cardTitle, setCardTitle] = useState("");
 
     // handlers
-    // const handlerActiveStateEl = ({target}) => {
-    //   const {action, actionId} = target.dataset;
-    //   const activeId = action && getElPropsByEvent(target, activeStateEls)["id"];    
+    const handlerActiveStateEl = ({target}) => {
+      const {action, actionId} = target.dataset;
+      const activeId = action && getElPropsByEvent(target, openCards)["id"];
 
-    // //   action === "open" && !isActiveEl(activeStateEls, actionId) && setActiveElId(actionId);      
-    //   action === "close" && activeId === actionId && setActiveElId(actionId);
+    //   action === "close" && setActiveElId(actionId);
+    console.log('action :>> ', action);
+      action === "close" && dispatch(actionCloseCard(activeId));
 
-    //   if(action === "turn"){
-    //     const title = target.closest('ul').previousElementSibling.textContent;
-    //     setCardTitle(title);
-    //     setActiveElId(actionId);
-    //   }
+      if(action === "turn"){
+        const title = target.closest('ul').previousElementSibling.textContent;
+        setCardTitle(title);
+        setActiveElId(actionId);
+      }
 
-    //   setActiveElAction(action);
-    // }
+      setActiveElAction(action);
+    }
 
 
     // effects
@@ -61,7 +62,7 @@ const BottomBar = () => {
                 marks.length > 0 && 
                 <ul className={scss.list}>
                     {
-                        marks.map(({title}) => <li>{ <MarkCard props={{title}}/>}</li>)
+                        marks.map(({title, id}) => <li>{<MarkCard props={{title, id}}/>}</li>)
                     }
                 </ul>
             }
