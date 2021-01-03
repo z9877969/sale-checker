@@ -1,11 +1,13 @@
-import {ActionType} from './reducerTopMenu';
+import {createAction} from '@reduxjs/toolkit';
 
-export const actionOpenTopMenu = (payload) => ({
-    type: ActionType.OPEN_TOP_MENU_LIST,
-    payload: payload    
-});
+const openTopMenuList = createAction('open/topMenuList');
+const closeTopMenuList = createAction('close/topMenuList');
+const openTopMenuItem = createAction('open/topMenuItem');
+const closeTopMenuItem = createAction('close/topMenuItem');
 
-export const actionCloseTopMenu = (id) => ({
-    type: ActionType.CLOSE_TOP_MENU_LIST,
-    payload: id,
-})
+export {
+    openTopMenuList,
+    closeTopMenuList,
+    openTopMenuItem,
+    closeTopMenuItem,
+}

@@ -1,24 +1,37 @@
-import React from 'react';
-import shortid from 'shortid';
-import Button from '../../utils/Button/Button';
+import React from "react";
+import { useDispatch } from "react-redux";
+import shortid from "shortid";
+import Button from "../../utils/Button/Button";
 
 const styles = {
-    list: {
-        display: "flex",
-    },
+	list: {
+		display: "flex",
+	},
 };
 
 const BtnsColection = props => {
-    const {dataRender} = props;
-    
-    return (
-        <ul style={styles.list}>
-            {
-                dataRender.map(data => <li key={shortid.generate()}><Button props={data}/></li>)
-            }
-        </ul>
-        
-    )
-}
+	const dispatch = useDispatch();
+    const { dataRender, cbArr, cardId } = props;
+	const dataUpdated = cbArr.length ? dataRender.map((data, idx) => ({ ...data, cb: cbArr[idx] })) : dataRender;
+
+	const handleCardStatus = (cardId, cb) => {
+		dispatch(cb(cardId));
+	};
+	
+	return (
+		<ul style={styles.list}>
+			{dataUpdated.map(data => (
+				<li key={shortid.generate()}>
+					<Button {...data} cb={handleCardStatus} args={[cardId, data.cb]} />
+				</li>
+			))}
+		</ul>
+	);
+};
 
 export default BtnsColection;
+
+BtnsColection.defaultProps = {
+	cbArr: [],
+	cardId: '',
+}

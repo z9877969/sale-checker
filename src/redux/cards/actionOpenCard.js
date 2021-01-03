@@ -1,23 +1,13 @@
-import {ActionType} from './reducerOpenCard';
+import { createAction } from "@reduxjs/toolkit";
 
-// // helpers
-// const getActionTruePayload = payload => {
-//     const payloadInside = {id: payload.id};
-//     payloadInside[payload.action] = true;
-//     return payloadInside;
-// }
+const openCard = createAction("open/card");
+const turnCard = createAction("turn/card");
+const closeCard = createAction("close/card");
+const addCardTitle = createAction("add/cardTitle")
 
-export const actionOpenCard = (payload) => ({
-    type: ActionType.OPEN_CARD,
-    payload: payload
-});
-
-export const actionTurnCard = (payload) => ({
-    type: ActionType.TURN_CARD,
-    payload: payload
-});
-
-export const actionCloseCard = (id) => ({
-    type: ActionType.CLOSE_CARD,
-    payload: id,
-})
+export {
+	openCard,
+	turnCard,
+	closeCard,
+	addCardTitle,
+};

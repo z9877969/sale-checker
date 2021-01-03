@@ -1,8 +1,13 @@
 {
-    isModalOpen: [
+    cards: [
         {
-            cardFoods: 
-        },  
+            id: string[card-name],
+            status: string[open||close||turn],
+            data: {}
+        }
     ],
-    
+    activeCard: {
+        id: string[card-name],
+        data: {}
+    }
 }
