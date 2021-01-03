@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "1604c29ba38046260d6f54b574e2a2ef",
+    "revision": "d49bbdc9ab75127778f7d7f8f0171405",
     "url": "/sale-checker/index.html"
   },
   {
-    "revision": "ad4ddb5247cb912001e5",
-    "url": "/sale-checker/static/css/main.6c1a2dfd.chunk.css"
+    "revision": "7e98474b373102945213",
+    "url": "/sale-checker/static/css/main.94254a3b.chunk.css"
   },
   {
-    "revision": "2240b9d73c562ca87015",
-    "url": "/sale-checker/static/js/2.254567c1.chunk.js"
+    "revision": "d181deb45c5f47880c28",
+    "url": "/sale-checker/static/js/2.66674508.chunk.js"
   },
   {
-    "revision": "c64c486544348f10a6d6c716950bc223",
-    "url": "/sale-checker/static/js/2.254567c1.chunk.js.LICENSE.txt"
+    "revision": "9b318b6fb13190fe82c0677e9264b3c7",
+    "url": "/sale-checker/static/js/2.66674508.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "ad4ddb5247cb912001e5",
-    "url": "/sale-checker/static/js/main.5be73393.chunk.js"
+    "revision": "7e98474b373102945213",
+    "url": "/sale-checker/static/js/main.031da0c6.chunk.js"
   },
   {
     "revision": "e36928a49476f155bd52",
