@@ -11,13 +11,13 @@ const styles = {
 
 const BtnsColection = props => {
 	const dispatch = useDispatch();
-    const { dataRender, cbArr, cardId } = props;
+	const { dataRender, cbArr, cardId } = props;
 	const dataUpdated = cbArr.length ? dataRender.map((data, idx) => ({ ...data, cb: cbArr[idx] })) : dataRender;
 
 	const handleCardStatus = (cardId, cb) => {
 		dispatch(cb(cardId));
 	};
-	
+
 	return (
 		<ul style={styles.list}>
 			{dataUpdated.map(data => (
@@ -33,5 +33,5 @@ export default BtnsColection;
 
 BtnsColection.defaultProps = {
 	cbArr: [],
-	cardId: '',
-}
+	cardId: "",
+};

@@ -14,11 +14,14 @@ import { combineReducers } from "redux";
 // };
 // import {reducerActiveStateEls} from './redux/activeStateElements/reducerActiveStateElements';
 // import {reducerIsTopMenuListOpen} from './redux/topMenu/reducerTopMenu';
-import { reducerActiveStateEls } from "./redux/reducersGroups/reducersActiveStateEls";
+import { reducerActiveStateEls } from "./reducersGroups/reducersActiveStateEls";
+
+import todosSlice from './testSlice';
 
 const rootReducer = combineReducers({
 	activeStateEls: reducerActiveStateEls,
 	// cards: cardsReducer,
+	// todos: todosSlice,
 });
 
 export default rootReducer;

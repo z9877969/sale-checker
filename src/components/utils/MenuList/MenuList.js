@@ -2,7 +2,8 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import Button from "../Button/Button";
 import { closeTopMenuList } from "../../../redux/topMenu/actionTopMenu";
-import { openCard } from "../../../redux/cards/actionOpenCard";
+// import { openCard } from "../../../redux/cards/actionOpenCard";
+import { openCard } from "../../../redux/cards/cardsSlice";
 
 const MenuList = props => {
 	const dispatch = useDispatch();

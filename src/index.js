@@ -2,8 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import App from './App/App';
-import createStore from './createStore';
+import store from './redux/store';
 import scss from './sass/index.scss';
+
+import './move'; // to remove
+import TodoBtn from './move';
 
 // ReactDOM.render(
 //   <React.StrictMode>
@@ -18,8 +21,6 @@ import scss from './sass/index.scss';
 // });
 // =============================
 
-const store = createStore;
-
 const render = Component => {
   return ReactDOM.render(
     <Provider store={store}>          
@@ -30,6 +31,7 @@ const render = Component => {
 };
 
 render(App);
+// render(TodoBtn);
 
 if (module.hot) {
   module.hot.accept('./App/App', () => {

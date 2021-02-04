@@ -5,7 +5,8 @@ import FormInputData from "../../components/patterns/FormInputData/FormInputData
 import BtnsFinished from "../../components/patterns/BtnsColection/BtnsColection";
 import Title from "../../components/utils/Title/Title";
 import { getCardsIds } from "../../redux/cards/cardSelectors";
-import { addCardTitle } from "../../redux/cards/actionOpenCard";
+// import { addCardTitle } from "../../redux/cards/actionOpenCard";
+import { addCardTitle } from "../../redux/cards/cardsSlice";
 
 import scss from "./pageCardFood.module.scss";
 import * as dataRender from "../../utils/renderData/renderCardFood.json";

@@ -3,7 +3,8 @@ import { useDispatch } from "react-redux";
 import shortid from "shortid";
 import Button from "../../utils/Button/Button";
 import * as renderBtns from "../../../utils/renderData/renderBtns.json";
-import { closeCard, turnCard } from "../../../redux/cards/actionOpenCard";
+// import { closeCard, turnCard } from "../../../redux/cards/actionOpenCard";
+import { closeCard, turnCard } from "../../../redux/cards/cardsSlice";
 import scss from "./BtnsCtrlCardHeader.module.scss";
 
 const dataRender = renderBtns.btnsCtrlCardHeader;

@@ -11,7 +11,8 @@ import Title from "../../components/utils/Title/Title";
 import * as dataRender from "../../utils/renderData/renderCardCustomer.json";
 
 import { getCardsIds } from "../../redux/cards/cardSelectors";
-import { addCardTitle } from "../../redux/cards/actionOpenCard";
+// import { addCardTitle } from "../../redux/cards/actionOpenCard";
+import { addCardTitle } from "../../redux/cards/cardsSlice";
 
 // imp styles
 import scss from "./pageCardCustomer.module.scss";
