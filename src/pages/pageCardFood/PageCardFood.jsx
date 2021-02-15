@@ -13,17 +13,16 @@ import * as dataRender from "../../utils/renderData/renderCardFood.json";
 
 const PageFoodCard = () => {
 	const dispatch = useDispatch();
-
 	const openedCards = useSelector(getCardsIds);
 
-	const { id, title } = dataRender.modalFoodCard;
+	const { id, title, forms } = dataRender.cardFood;
 	const {
-		formInputsDescrSets,
-		formSaleCtrlSets,
-		formUnitsSets,
-		setsLocalBtnsCard,
-		setsGlobalBtnsCard,
-	} = dataRender.default;
+		description,
+		saleParams,
+		units,
+		formBtns,
+		cardBtns,
+	} = forms;
 
 	useEffect(() => {
 		openedCards.includes(id) && dispatch(addCardTitle({ id, title }));
@@ -32,19 +31,19 @@ const PageFoodCard = () => {
 
 	return (
 		<ModalWindow id={id} title={title} actionId={id}>
-			<FormInputData dataRender={formInputsDescrSets} btnsColSets={setsLocalBtnsCard} />
+			<FormInputData dataRender={description} btnsColSets={formBtns} />
 			<ul className={scss.advSetPanel}>
 				<li>
 					<Title title="Цена и наценка" />
-					<FormInputData dataRender={formSaleCtrlSets} btnsColSets={setsLocalBtnsCard} />
+					<FormInputData dataRender={saleParams} btnsColSets={formBtns} />
 				</li>
 				<li>
 					<Title title="Единицы измерения" />
-					<FormInputData dataRender={formUnitsSets} btnsColSets={setsLocalBtnsCard} />
+					<FormInputData dataRender={units} btnsColSets={formBtns} />
 				</li>
 			</ul>
 			<div className={scss.bottomSideBar}>
-				<BtnsFinished dataRender={setsGlobalBtnsCard} />
+				<BtnsFinished dataRender={cardBtns} />
 			</div>
 		</ModalWindow>
 	);
