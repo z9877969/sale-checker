@@ -1,17 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
-
-// import actions
+import PageCardFood from "../../../pages/pageCardFood/PageCardFood";
+import PageCardCustomer from "../../../pages/pageCardCustomer/PageCardCustomer";
 import { getCardsSet, getCardsIds } from "../../../redux/cards/cardSelectors";
-
-// import components
-import PageCardFood from "../../../pages/pageCardFood/pageCardFood";
-import PageCardCustomer from "../../../pages/pageCardCustomer/pageCardCustomer";
-
-// import helpers
 import "./CardsArea.module.scss";
-
-// helpers
 
 const CardsArea = () => {
 	

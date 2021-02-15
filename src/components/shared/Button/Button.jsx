@@ -2,17 +2,11 @@ import React from "react";
 import { getPropsAttribute } from "../../../utils/helpers/helpers";
 
 const Button = props => {
-	
 	const { title, type, action, cb, args } = props;
-
-    const handleClick = () => cb(...args)
+	const handleClick = () => cb(...args);
 
 	return (
-		<button
-			onClick={handleClick}
-			type={type}
-			data-action={getPropsAttribute(action)}
-		>
+		<button onClick={handleClick} type={type} data-action={getPropsAttribute(action)}>
 			{getPropsAttribute(title)}
 		</button>
 	);

@@ -12,8 +12,6 @@ export const sliceOpenCards = createSlice({
 			return cardById
 				? [{ ...cardById, status: "open" }, ...removeCardById(state, payload)]
 				: [{ id: payload, status: "open" }, ...state];
-			// const idx = state.indexOf(payload);
-			// idx !== -1 ? state.splice(idx, 1, { ...state[idx], status: "open" }) : state.push({ id: payload, status: "open" });
 		},
 		turnCard(state, { payload }) {
 			const cardById = getCardById(state, payload);

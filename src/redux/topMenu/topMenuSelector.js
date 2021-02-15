@@ -1,5 +1,5 @@
-const getTopMenuList = state => state.activeStateEls.openTopMenu.list;
-const getTopMenuItem = state => state.activeStateEls.openTopMenu.item;
+const getTopMenuList = state => state.opened.topMenu.list;
+const getTopMenuItem = state => state.opened.topMenu.item;
 
 export {
     getTopMenuList,

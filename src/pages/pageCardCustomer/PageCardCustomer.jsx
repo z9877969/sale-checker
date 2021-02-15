@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 // import components
-import ModalWindow from "../../components/utils/ModalWindow/ModalWindow";
-import FormInputData from "../../components/patterns/FormInputData/FormInputData";
-import BtnsFinished from "../../components/patterns/BtnsColection/BtnsColection";
-import Title from "../../components/utils/Title/Title";
+import ModalWindow from "../../components/shared/ModalWindow/ModalWindow";
+import FormInputData from "../../components/template/FormInputData/FormInputData";
+import BtnsFinished from "../../components/template/BtnsColection/BtnsColection";
+import Title from "../../components/shared/Title/Title";
 
 // imp utils
 import * as dataRender from "../../utils/renderData/renderCardCustomer.json";

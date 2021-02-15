@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import shortid from "shortid";
-import Button from "../../utils/Button/Button";
+import Button from "../../shared/Button/Button";
 
 const styles = {
 	list: {

@@ -1,18 +1,10 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-
-// imp components
-import Button from "../../utils/Button/Button";
-import MenuList from "../../utils/MenuList/MenuList";
-
-// imp render data
+import Button from "../../shared/Button/Button";
+import MenuList from "../../shared/MenuList/MenuList";
 import renderMenu from "../../../utils/renderData/renderTopMenu.json";
-
-// imp redux set
-import { openTopMenuList, closeTopMenuList } from "../../../redux/topMenu/actionTopMenu";
+import { openList, closeList } from "../../../redux/topMenu/topMenuSlice";
 import { getTopMenuList } from "../../../redux/topMenu/topMenuSelector";
-
-// imp styles
 import scss from "./TopMenu.module.scss";
 
 const { generalMenuBtns } = renderMenu;
@@ -25,10 +17,10 @@ const TopMenu = () => {
 
 	const handleToggleMenuList = id => {
 		if (!activeTopMenuList) {
-			dispatch(openTopMenuList(id));
+			dispatch(openList(id));
 		} else {
-			dispatch(closeTopMenuList());
-			dispatch(openTopMenuList(id));
+			dispatch(closeList());
+			dispatch(openList(id));
 		}
 	};
 

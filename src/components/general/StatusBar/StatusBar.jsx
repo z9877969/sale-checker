@@ -1,10 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
-
-import MarkCard from "../../patterns/MarkCard/MarkCard";
-
+import MarkCard from "../../template/MarkCard/MarkCard";
 import { getTurnCards } from "../../../redux/cards/cardSelectors";
-
 import scss from "./StatusBar.module.scss";
 
 const StatusBar = () => {

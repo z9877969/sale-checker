@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import shortid from "shortid";
-import Input from "../../utils/Input/Input";
+import Input from "../../shared/Input/Input";
 import BtnsColection from "../BtnsColection/BtnsColection";
 // import { postFoodsData } from '../../../utils/fetch/fetchForm';
 import scss from "./FormInputData.module.scss";

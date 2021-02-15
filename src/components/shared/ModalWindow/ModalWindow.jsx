@@ -1,6 +1,6 @@
 import React from 'react';
 import Title from '../Title/Title';
-import BtnsCtrlCardHeader from '../../patterns/BtnsCtrlCardHeader/BtnsCtrlCardHeader';
+import BtnsCtrlCardHeader from '../../template/BtnsCtrlCardHeader/BtnsCtrlCardHeader';
 import scss from './ModalWindow.module.scss';
 
 const ModalWindow = props => {

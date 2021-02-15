@@ -1,6 +1,6 @@
 // import { createSelector } from "@reduxjs/toolkit";
 
-const getCards = state => state.activeStateEls.openCards;
+const getCards = state => state.opened.cards;
 const getCardsIds = state => getCards(state).map(card => card.id);
 const getCardsSet = state => getCards(state).map(card => ({id: card.id, status: card.status}));
 const getTurnCards = state => getCards(state).filter(card => card.status === "turn")

@@ -1,8 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import Button from "../Button/Button";
-import { closeTopMenuList } from "../../../redux/topMenu/actionTopMenu";
-// import { openCard } from "../../../redux/cards/actionOpenCard";
+import { closeList } from "../../../redux/topMenu/topMenuSlice";
 import { openCard } from "../../../redux/cards/cardsSlice";
 
 const MenuList = props => {
@@ -11,7 +10,7 @@ const MenuList = props => {
 
 	const handleActiveItem = id => {
 		dispatch(openCard(id));
-		dispatch(closeTopMenuList());
+		dispatch(closeList());
 	};
 
 	return (

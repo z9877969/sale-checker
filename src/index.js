@@ -5,8 +5,8 @@ import App from './App/App';
 import store from './redux/store';
 import scss from './sass/index.scss';
 
-import './move'; // to remove
-import TodoBtn from './move';
+// import './move'; // to remove
+// import TodoBtn from './move';
 
 // ReactDOM.render(
 //   <React.StrictMode>
