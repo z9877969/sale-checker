@@ -30,7 +30,7 @@ const TopMenu = () => {
 				<ul className={scss.list}>
 					{generalMenuBtns.map(el => (
 						<li className={scss.item} key={"topMenu" + el.actionId}>
-							<Button {...el} cb={handleToggleMenuList} args={[el.actionId]} />
+							<Button {...el} cbProp={handleToggleMenuList} args={[el.actionId]} />
 							{activeTopMenuList && el.actionId === activeTopMenuList && <MenuList renderData={el.cardsList} />}
 						</li>
 					))}

@@ -1,21 +1,21 @@
 {
-    "btnsCtrlCardHeader": [
-        {
-            "action": "turn"
-        },
-        {
-            "action": "fullSize"
-        },
-        {
-            "action": "close"
-        }
-    ],
-    "btnsCtrlMarkCard": [
-        {
-            "action": "turn"
-        },
-        {
-            "action": "close"
-        }
-    ]
+	"btnsCtrlCardHeader": [
+		{
+			"action": "turn"
+		},
+		{
+			"action": "fullSize"
+		},
+		{
+			"action": "close"
+		}
+	],
+	"btnsCtrlMarkCard": [
+		{
+			"name": "turn"
+		},
+		{
+			"name": "close"
+		}
+	]
 }

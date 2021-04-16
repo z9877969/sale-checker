@@ -3,7 +3,6 @@ import { useDispatch } from "react-redux";
 import shortid from "shortid";
 import Button from "../../shared/Button/Button";
 import * as renderBtns from "../../../utils/renderData/renderBtns.json";
-// import { closeCard, turnCard } from "../../../redux/cards/actionOpenCard";
 import { closeCard, turnCard } from "../../../redux/cards/cardsSlice";
 import scss from "./BtnsCtrlCardHeader.module.scss";
 
@@ -28,7 +27,7 @@ const BtnsCtrlCardHeader = ({ actionId }) => {
 			{dataRender.map(data => {
 				return (
 					<li key={shortid.generate()}>
-						<Button {...data} cb={handleCardStatus} args={[data.action]} />
+						<Button {...data} cbProp={handleCardStatus} args={[data.action]} />
 					</li>
 				);
 			})}

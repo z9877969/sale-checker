@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import {Provider} from 'react-redux';
 import App from './App/App';
 import store from './redux/store';
@@ -23,7 +24,7 @@ import scss from './sass/index.scss';
 
 const render = Component => {
   return ReactDOM.render(
-    <Provider store={store}>          
+    <Provider store={store}>   
       <Component scss={scss}/>          
     </Provider>,
     document.getElementById('root'),

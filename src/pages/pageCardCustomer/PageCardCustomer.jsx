@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 // import components
 import ModalWindow from "../../components/shared/ModalWindow/ModalWindow";
 import FormInputData from "../../components/template/FormInputData/FormInputData";
-import BtnsFinished from "../../components/template/BtnsColection/BtnsColection";
+import BtnsColection from "../../components/template/BtnsColection/BtnsColection";
 import Title from "../../components/shared/Title/Title";
 
 // imp utils
@@ -50,7 +50,7 @@ const PageCardCustomer = () => {
 				</li>
 			</ul>
 			<div className={scss.bottomSideBar}>
-				<BtnsFinished dataRender={setsGlobalBtnsCard} />
+				<BtnsColection dataRender={setsGlobalBtnsCard} />
 			</div>
 		</ModalWindow>
 	);
