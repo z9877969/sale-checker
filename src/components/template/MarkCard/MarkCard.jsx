@@ -9,11 +9,18 @@ import scss from "./MarkCard.module.scss";
 const MarkCard = ({ props }) => {
 	const { id } = props;
 	const title = useSelector(state => getActiveCard(state, id)).title;
-
+	
 	return (
 		<article data-action-id={id} className={scss.label}>
 			<h2 className={scss.title}>{title}</h2>
-			<BtnsColection dataRender={btnsCtrlMarkCard} cardId={id} cbArr={[openCard, closeCard]} />
+			<BtnsColection
+				btnsSet={btnsCtrlMarkCard}
+				cardName={id}
+				cbOpts={[
+					{ cb: openCard, name: "turn" },
+					{ cb: closeCard, name: "close" },
+				]}
+			/>
 		</article>
 	);
 };

@@ -11,18 +11,26 @@ const styles = {
 
 const BtnsColection = props => {
 	const dispatch = useDispatch();
-	const { dataRender, cbArr, cardId } = props;
-	const dataUpdated = cbArr.length ? dataRender.map((data, idx) => ({ ...data, cb: cbArr[idx] })) : dataRender;
 
-	const handleCardStatus = (cardId, cb) => {
-		dispatch(cb(cardId));
+	const { btnsSet, cbOpts, cardName } = props;
+
+	const withCbOpts = cbOpts.length
+		? btnsSet.map(({ name, ...rest }) => ({
+				action: name,
+				cb: cbOpts.find(el => el.name === name)["cb"],
+				...rest,
+		  }))
+		: btnsSet;
+
+	const onClick = (cardName, cb) => {
+		dispatch(cb(cardName));
 	};
 
 	return (
 		<ul style={styles.list}>
-			{dataUpdated.map(data => (
+			{withCbOpts.map(data => (
 				<li key={shortid.generate()}>
-					<Button {...data} cb={handleCardStatus} args={[cardId, data.cb]} />
+					<Button {...data} cbProp={onClick} args={[cardName, data.cb]} />
 				</li>
 			))}
 		</ul>
@@ -33,5 +41,5 @@ export default BtnsColection;
 
 BtnsColection.defaultProps = {
 	cbArr: [],
-	cardId: "",
+	cardName: "",
 };

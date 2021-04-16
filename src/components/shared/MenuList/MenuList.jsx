@@ -18,7 +18,7 @@ const MenuList = props => {
 			{renderData.map(data => {
 				return (
 					<li key={"menuListItems" + data.actionId}>
-						<Button {...data} cb={handleActiveItem} args={[data.actionId]} />
+						<Button {...data} cbProp={handleActiveItem} args={[data.actionId]} />
 					</li>
 				);
 			})}

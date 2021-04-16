@@ -1,7 +1,7 @@
 {
 	"cardFood": {
 		"title": "Карточка товара",
-		"id": "card-food",
+		"cardName": "card-food",
 		"forms": {
 			"description": [
 				{
@@ -71,27 +71,19 @@
 				}
 			],
 			"cardBtns": [
-				{
-					"title": "Отмена",
-					"type": "button"
-				},
-				{
-					"title": "ОК",
-					"type": "submitt"
-				},
-				{
-					"title": "Записать",
-					"type": "button"
-				}
+				{ "name": "cancel", "title": "Отмена", "type": "button" },
+				{ "name": "ok", "title": "ОК", "type": "submit" }
 			],
 			"formBtns": [
 				{
 					"title": "Применить",
-					"type": "submit"
+					"type": "submit",
+					"name": "submit"
 				},
 				{
 					"title": "Отмена",
-					"type": "button"
+					"type": "button",
+					"name": "cancel"
 				}
 			]
 		}
